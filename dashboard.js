@@ -45,7 +45,7 @@ const init = async () => {
 };
 
 const logoutHandler = () => {
-  document.cookie = "token; max-age=0";
+  document.cookie = "token=; max-age=0";
   location.assign("index.html");
 };
 logoutButton.addEventListener("click", logoutHandler);
