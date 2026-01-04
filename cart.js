@@ -9,10 +9,13 @@ const cartList = document.getElementById("cart-list");
 const showCart = async () => {
   const allCarts = await getData("carts");
   mainContent.innerHTML = "";
-  // body.innerHTML += `` 
-    
+  mainContent.innerHTML += `   
+   <section id="cart">
+      <h3>Cart</h3>
+      <section id="cart-list"><h5>Empty</h5></section>
+    </section>`;
 
-    createCard(allCarts);
+  createCard(allCarts);
 };
 
 document.addEventListener("DOMContentLoaded", showCart);
