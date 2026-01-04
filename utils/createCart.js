@@ -10,34 +10,22 @@ const userId = user.id;
 //     console.log(product);
 //   }
 // });
-const createCard = async (data) => {
+const getCart = async (carts) => {
   const allProducts = await getData("products");
-  data.filter((cart) => {
-    const isTrue = cart.userId === userId;
-    if (isTrue) {
-      cartList.innerHTML = "";
-      const jsx = `   
 
-      <div>
-        <img  src=https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png />
-        <div id="cart-info">
-          <h4>${"name"}</h4>
-          <p>${"price"}</p>
-        </div> 
-        <div id="cart-control">
-            <div>
-                <button data-id=${cart.products[0].productId}>-</button>
-                <span>${cart.products[0].quantity}</span>
-                <button data-id=${cart.products[0].productId}>+</button>
-            </div>  
-            <button data-id=${cart.products[0].productId}>Remove</button>
-        </div>  
-      </div>
-      `;
-      cartList.innerHTML += jsx;
-      // console.log(cart);
-    }
+  let userCart = carts.find((cart) => cart.userId === userId);
+  let finalData = [];
+
+  userCart.products.forEach((product) => {
+    const PRODUCT = allProducts.find((prc) => prc.id == product.productId);
+    finalData.push({
+      product: PRODUCT,
+      quantity: product.quantity,
+    });
   });
+
+  return finalData;
 };
 
-export default createCard;
+
+export default getCart;

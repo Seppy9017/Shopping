@@ -6,10 +6,31 @@
     <title>Cart</title>
     <link rel="stylesheet" href="./css/global.css" />
     <link rel="stylesheet" href="./css/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
-    <h1>Cart</h1>
+    <header>
+      <h3>Cart</h3>
+      <div>
+        <a href="index.html">
+          Home
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <button id="logout">
+          Logout
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </header>
+
     <div id="container"><span id="loader"></span></div>
+    <section id="cart">
+      <h3>Cart</h3>
+      <section id="cart-list"><h5>Empty</h5></section>
+    </section>
 
     <script type="module" src="cart.js"></script>
   </body>

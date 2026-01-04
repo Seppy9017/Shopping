@@ -23,17 +23,17 @@ header button {
   margin-left: 20px;
   cursor: pointer;
 }
+header a:hover,
+header button:hover {
+  color: #fff;
+  background-color: #000;
+}
 header button {
   color: var(--color-error);
 }
 
 header i {
   margin-left: 10px;
-}
-header a:hover,
-header button:hover {
-  color: #fff;
-  background-color: #000;
 }
 
 #card {
