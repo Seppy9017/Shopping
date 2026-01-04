@@ -37,6 +37,8 @@ const renderUsers = (users) => {
     mainContent.innerHTML += jsx;
   });
 };
+const username = localStorage.getItem("username");
+const password = localStorage.getItem("password");
 saveUser();
 
 const init = async () => {

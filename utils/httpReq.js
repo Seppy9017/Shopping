@@ -23,7 +23,7 @@ const getData = async (path) => {
     showModal("An error occured!");
   }
 };
-
+ 
 const saveUser = async () => {
   const username = localStorage.getItem("username");
   const password = localStorage.getItem("password");
