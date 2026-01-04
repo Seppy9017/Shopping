@@ -1,6 +1,6 @@
 import { authHandler } from "./utils/authorization.js";
 import { setCookie } from "./utils/cookie.js";
-import { getData } from "./utils/httpReq.js";
+import { getData, saveUser } from "./utils/httpReq.js";
 
 const logoutButton = document.getElementById("logout");
 const mainContent = document.getElementById("container");
@@ -37,13 +37,17 @@ const renderUsers = (users) => {
     mainContent.innerHTML += jsx;
   });
 };
+saveUser();
 
 const init = async () => {
   authHandler();
   const Users = await getData("users");
+  const spacificUser = Users.filter(
+    (user) => user.username === username && user.password === password
+  );
+  localStorage.setItem("userId", JSON.stringify(spacificUser));
   renderUsers(Users);
 };
-
 const logoutHandler = () => {
   document.cookie = "token=; max-age=0";
   location.assign("index.html");

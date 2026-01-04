@@ -24,4 +24,13 @@ const getData = async (path) => {
   }
 };
 
-export { postData, getData };
+const saveUser = async () => {
+  const username = localStorage.getItem("username");
+  const password = localStorage.getItem("password");
+  const Users = await getData("users");
+  const spacificUser = Users.filter(
+    (user) => user.username === username && user.password === password
+  );
+  localStorage.setItem("userId", JSON.stringify(spacificUser));
+};
+export { postData, getData, saveUser };

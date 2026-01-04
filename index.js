@@ -51,6 +51,7 @@ const init = async () => {
   allProducts = await getData("products");
   renderProducts(allProducts);
 };
+
 const filterProducts = () => {
   const filterProducts = allProducts.filter((product) => {
     if (category === "all") {
@@ -82,5 +83,8 @@ const filterHandler = (event) => {
 };
 listItems.forEach((li) => li.addEventListener("click", filterHandler));
 
-searchButton.addEventListener("click", searchHandler);
+if (location.href.includes("index")) {
+  searchButton.addEventListener("click", searchHandler);
+}
 document.addEventListener("DOMContentLoaded", init);
+export { allProducts };
