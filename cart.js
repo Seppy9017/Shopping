@@ -1,5 +1,5 @@
 import getCart from "./utils/createCart.js";
-import { getData, saveUser } from "./utils/httpReq.js";
+import { getData, postData, saveUser } from "./utils/httpReq.js";
 import { shortenText } from "./utils/stringFunc.js";
 
 const mainContent = document.getElementById("container");
@@ -8,7 +8,19 @@ const logoutButton = document.getElementById("logout");
 const Cart = document.getElementById("cart");
 const cartList = document.getElementById("cart-list");
 
+const newData = {
+  id: 11,
+  username: "john_doe",
+  email: "john@example.com",
+  password: "pass123",
+};
+
 const showCart = async () => {
+  const newUser = await postData("users", newData);
+
+  const getNewUser = await getData("users/11");
+  console.log({ getNewUser, newUser });
+
   mainContent.innerHTML = "";
   const allCarts = await getData("carts");
   Cart.style.display = "flex";
